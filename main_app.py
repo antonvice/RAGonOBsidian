@@ -48,7 +48,7 @@ def page():
     st.header("ChatOBS")
 
     if not st.session_state["assistant"].vector_store:
-        st.session_state["assistant"].ingest()
+        st.session_state["assistant"].ingest_dir()
 
     st.subheader("Upload a document")
     st.file_uploader(

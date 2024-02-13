@@ -1,4 +1,6 @@
 # Chat with Obsidian Docs using Streamlit
+![Demo Image](demo.img)
+
 
 ## Description
 I built this app to converse with my obsidian notes because I fortet what I take a note off. Basically, this app allows you to chat with your Obsidian docs using a Streamlit UI. You can send messages, receive responses, and interact with your Obsidian documents in a conversational manner.
@@ -12,6 +14,10 @@ To install the app, follow these steps:
 
 ## Usage
 Once the app is running, open the chat interface and start typing your messages. The app will interact with your Obsidian docs based on the commands and queries you provide.
+
+## To DO
+1. add pdf upload to store in obsidian as extra info
+
 
 ## Features
 - Streamlit UI for interacting with Obsidian docs
