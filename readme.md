@@ -6,8 +6,9 @@ I built this app to converse with my obsidian notes because I fortet what I take
 ## Installation
 To install the app, follow these steps:
 1. Clone the repository from GitHub.
-2. Install the necessary dependencies using `poetry install`.
-3. Run the app using the command `streamlit run main_app.py`.
+2. Put your obsidian vault in the wrkdir
+3. Install the necessary dependencies using `poetry install`.
+4. Run the app using the command `streamlit run main_app.py`.
 
 ## Usage
 Once the app is running, open the chat interface and start typing your messages. The app will interact with your Obsidian docs based on the commands and queries you provide.
@@ -21,4 +22,4 @@ Once the app is running, open the chat interface and start typing your messages.
 If you'd like to contribute to the development of this app, please follow the guidelines in CONTRIBUTING.md.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+no license, use at your own risk
