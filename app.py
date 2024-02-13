@@ -3,7 +3,7 @@ import sys
 
 from langchain_community.document_loaders import DirectoryLoader
 
-
+from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import Chroma
 from langchain.chat_models import ChatOllama
 from langchain.embeddings import FastEmbedEmbeddings
@@ -35,7 +35,24 @@ class ChatOBS:
         )
         self.ingest_dir()
 
+    def ingest(self, pdf_file_path: str):
+        docs = PyPDFLoader(file_path=pdf_file_path).load()
+        chunks = self.text_splitter.split_documents(docs)
+        chunks = filter_complex_metadata(chunks)
 
+        vector_store = Chroma.from_documents(documents=chunks, embedding=FastEmbedEmbeddings())
+        self.retriever = vector_store.as_retriever(
+            search_type="similarity_score_threshold",
+            search_kwargs={
+                "k": 3,
+                "score_threshold": 0.5,
+            },
+        )
+
+        self.chain = ({"context": self.retriever, "question": RunnablePassthrough()}
+                      | self.prompt
+                      | self.model
+                      | StrOutputParser())
     def ingest_dir(self, dir_path: str = "Obsidian Vault/"):
         loader = DirectoryLoader(dir_path, glob="**/*.md", show_progress=True, use_multithreading=True)
         docs = loader.load()

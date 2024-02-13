@@ -50,7 +50,7 @@ def page():
     if not st.session_state["assistant"].vector_store:
         st.session_state["assistant"].ingest_dir()
 
-    st.subheader("Upload a document")
+    st.subheader("Chat With Obsidian")
     st.file_uploader(
         "Upload document",
         type=["pdf"],

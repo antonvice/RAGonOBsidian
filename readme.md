@@ -1,5 +1,5 @@
 # Chat with Obsidian Docs using Streamlit
-![Demo Image](demo.img)
+![Demo Image](demo.png)
 
 
 ## Description
